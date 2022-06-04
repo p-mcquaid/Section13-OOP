@@ -9,6 +9,13 @@ Account::Account(double new_balance, std::string new_name)
 {
     cout << "Two args contructor used" << endl;
 }
+
+Account::Account(const Account &source)
+    : Account{source.balance, source.name}
+{
+    cout << "Copy Constructor Used: Copy of " << source.name << " created" << endl;
+}
+
 Account::~Account()
 {
     cout << "Destructor called for " << name << endl;
@@ -17,11 +24,6 @@ Account::~Account()
 void Account::set_name(std::string new_name)
 {
     Account::name = new_name;
-}
-
-double Account::get_balance()
-{
-    return Account::balance;
 }
 
 bool Account::witdraw(double amount)
@@ -43,4 +45,11 @@ bool Account::witdraw(double amount)
 void Account::deposit(double amount)
 {
     Account::balance += amount;
+}
+
+void Account::display_details(Account &user)
+{
+    cout << "Account Details: " << endl;
+    cout << user.get_balance() << endl;
+    cout << user.get_name() << endl;
 }

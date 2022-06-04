@@ -15,12 +15,17 @@ private:
 
     public:
     Account(double new_balance = 0.0, std::string new_name = "None");
+    Account(const Account &source);
     ~Account();
 
     void set_name(std::string new_name);
-    double get_balance();
+
+    double get_balance(){return balance;}
+    std::string get_name(){return name;}
+    
     bool witdraw(double amount);
     void deposit(double amount);
-};
 
+    void display_details(Account &user);
+};
 #endif
