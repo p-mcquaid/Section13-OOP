@@ -9,6 +9,7 @@ using std::endl;
 
 int main()
 {
+    std::string name = "Paul";
     /* Player paul;
     Player sean("Sean");    
     Player lucy("Lucy", 40); */
